@@ -28,4 +28,8 @@ public interface EmployeeService {
      * @return
      */
     PageResult queryPage(EmployeePageQueryDTO employeeDTO);
+
+
+
+    void toggleStatus(Integer status, Long id);
 }

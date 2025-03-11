@@ -108,4 +108,13 @@ public class EmployeeController {
 
         return Result.success(pageResult);
     }
+
+    @ApiOperation("toggle employee status for login functionality")
+    @PostMapping("/status/{status}")
+    public Result toggleStatus(@PathVariable Integer status,  Long id) {
+
+        employeeService.toggleStatus(status,id);
+
+        return Result.success();
+    }
 }
