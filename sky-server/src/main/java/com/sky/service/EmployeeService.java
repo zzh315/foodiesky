@@ -32,4 +32,10 @@ public interface EmployeeService {
 
 
     void toggleStatus(Integer status, Long id);
+
+    Employee getEmployeeById(Long id);
+
+
+
+    void update(EmployeeDTO employeeDTO);
 }

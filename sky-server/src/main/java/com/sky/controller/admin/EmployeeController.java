@@ -18,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.support.TransactionTemplate;
 import org.springframework.web.bind.annotation.*;
 
+import javax.print.attribute.standard.ReferenceUriSchemesSupported;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -112,9 +113,25 @@ public class EmployeeController {
     @ApiOperation("toggle employee status for login functionality")
     @PostMapping("/status/{status}")
     public Result toggleStatus(@PathVariable Integer status,  Long id) {
-
         employeeService.toggleStatus(status,id);
-
         return Result.success();
     }
+
+    @GetMapping("/{id}")
+    @ApiOperation("get emp by id")
+    public Result<Employee> getEmployeeById(@PathVariable Long id) {
+        Employee employee = employeeService.getEmployeeById(id);
+        return Result.success(employee);
+    }
+
+    @PutMapping
+    @ApiOperation("update emp ")
+    public Result updateEmployee(@RequestBody EmployeeDTO employeeDTO) {
+        employeeService.update(employeeDTO);
+
+        return Result.success();
+
+
+    }
+
 }
