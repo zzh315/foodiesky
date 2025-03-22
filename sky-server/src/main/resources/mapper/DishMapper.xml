@@ -25,6 +25,7 @@
         </foreach>
 
     </insert>
+
     <select id="pageQuery" resultType="com.sky.vo.DishVO">
         select d.id,
         d.name,
@@ -34,7 +35,7 @@
         d.description,
         d.status,
         d.update_time,
-        c.name
+        c.name as categoryName
         from dish d
         left outer join category c on d.category_id = c.id
         <where>
@@ -50,6 +51,12 @@
         </where>
         order by d.update_time desc
 
+
+    </select>
+    <select id="getById" resultType="com.sky.entity.Dish">
+        select *
+        from dish
+        where id = #{id}
 
     </select>
 </mapper>
