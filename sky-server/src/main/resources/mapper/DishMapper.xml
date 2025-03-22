@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sky.mapper.DishMapper">
+
+
+    <insert id="insertDish" useGeneratedKeys="true" keyProperty="id">
+        insert into dish
+        values (null,
+                #{name},
+                #{categoryId},
+                #{price},
+                #{image},
+                #{description},
+                #{status},
+                #{createTime},
+                #{updateTime},
+                #{createUser},
+                #{updateUser})
+    </insert>
+    <insert id="insertDishFlavor" parameterType="list" >
+        insert into dish_flavor values
+        <foreach collection="dishFlavors" item="dishFlavor" separator=",">
+            (null, #{dishFlavor.dishId}, #{dishFlavor.name}, #{dishFlavor.value})
+        </foreach>
+
+    </insert>
+</mapper>

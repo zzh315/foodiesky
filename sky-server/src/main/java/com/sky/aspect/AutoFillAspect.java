@@ -65,7 +65,7 @@ public class AutoFillAspect {
 
 
         } else if (operationType == OperationType.UPDATE) {
-            Method setUpdateTime = null;
+            Method setUpdateTime;
             try {
                 setUpdateTime = entity.getClass().getDeclaredMethod(AutoFillConstant.SET_UPDATE_TIME, LocalDateTime.class);
                 Method setUpdateUser = entity.getClass().getDeclaredMethod(AutoFillConstant.SET_UPDATE_USER, Long.class);
@@ -74,9 +74,6 @@ public class AutoFillAspect {
             } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
                 throw new RuntimeException(e);
             }
-
         }
-
     }
-
 }

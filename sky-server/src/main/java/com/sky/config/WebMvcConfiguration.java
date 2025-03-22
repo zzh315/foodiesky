@@ -42,7 +42,10 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
                 .excludePathPatterns("/admin/employee/login");
     }
 
-
+    /**
+     * custom message converter, help decide how to convert java objects to json
+     * @param converters
+     */
     protected void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
         log.info("Start Message Converters...");
 
@@ -50,7 +53,6 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
         converter.setObjectMapper(new JacksonObjectMapper());
 
         converters.add(0, converter);
-
     }
 
 

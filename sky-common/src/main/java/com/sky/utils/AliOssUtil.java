@@ -18,6 +18,7 @@ public class AliOssUtil {
     private String accessKeyId;
     private String accessKeySecret;
     private String bucketName;
+    private String bucketRegion;
 
     /**
      * 文件上传

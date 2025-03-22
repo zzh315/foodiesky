@@ -7,10 +7,10 @@ spring:
   main:
     allow-circular-references: true
   datasource:
-#    driver-class-name: com.mysql.cj.jdbc.Driver
-#    url: jdbc:mysql://localhost:3306/sky_take_out
-#    username: root
-#    password: 1234
+    #    driver-class-name: com.mysql.cj.jdbc.Driver
+    #    url: jdbc:mysql://localhost:3306/sky_take_out
+    #    username: root
+    #    password: 1234
 
 
 
@@ -45,3 +45,9 @@ sky:
     admin-ttl: 720000000
     # 设置前端传递过来的令牌名称
     admin-token-name: token
+  alioss:
+    endpoint: ${sky.alioss.endpoint}
+    access-key-id: ${sky.alioss.access-key-id}
+    access-key-secret: ${sky.jwt.admin-secret-key}
+    bucket-name: ${sky.alioss.bucket-name}
+    bucket-region: ${sky.alioss.bucket-region}
